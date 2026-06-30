@@ -4,10 +4,10 @@ function NavBar() {
   return (
     <>
       <Link to="/">
-        <bouttn>Home</bouttn>
+        <button>Home</button>
       </Link>
       <Link to="/catalog">
-        <bouttn>Catalog</bouttn>
+        <button>Catalog</button>
       </Link>
     </>
   );
