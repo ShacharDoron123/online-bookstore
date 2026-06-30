@@ -109,3 +109,10 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+
+footer {
+  padding: 20px 0;
+  margin-top: auto; 
+}
+
+
