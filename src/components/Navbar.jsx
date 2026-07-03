@@ -9,6 +9,9 @@ function NavBar() {
       <Link to="/catalog">
         <button>Catalog</button>
       </Link>
+       <Link to="/shopping-cart">
+        <button>shopping cart</button>
+      </Link>
     </>
   );
 }
