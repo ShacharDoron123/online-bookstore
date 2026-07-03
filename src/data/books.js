@@ -1,52 +1,44 @@
 export const books = [
   {
     name: "Harry Potter and the Sorcerer's Stone",
+    author: "J.K. Rowling",
     date: "1997",
+    price: 60,
     img: "/books/harry-potter.jpg",
   },
   {
     name: "The Alchemist",
+    author: "Paulo Coelho",
     date: "1988",
+    price: 45,
     img: "/books/the-alchemist.jpg",
   },
   {
     name: "1984",
+    author: "George Orwell",
     date: "1949",
+    price: 40,
     img: "/books/1984.jpg",
   },
   {
-    name: "The Little Prince",
-    date: "1943",
-    img: "/books/little-prince.jpg",
-  },
-  {
-    name: "Sapiens: A Brief History of Humankind",
-    date: "2011",
-    img: "/books/sapiens.jpg",
-  },
-  {
     name: "The Hobbit",
+    author: "J.R.R. Tolkien",
     date: "1937",
+    price: 55,
     img: "/books/the-hobbit.jpg",
   },
   {
     name: "The Da Vinci Code",
+    author: "Dan Brown",
     date: "2003",
+    price: 50,
     img: "/books/da-vinci.jpg",
   },
   {
-    name: "Think Again",
-    date: "2021",
-    img: "/books/think-again.jpg",
-  },
-  {
-    name: "Atomic Habits",
-    date: "2018",
-    img: "/books/atomic-habits.jpg",
-  },
-  {
     name: "The Kite Runner",
+    author: "Khaled Hosseini",
     date: "2003",
+    price: 48,
     img: "/books/kite-runner.jpg",
   },
 ];

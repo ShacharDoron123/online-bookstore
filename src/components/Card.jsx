@@ -1,10 +1,19 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import BookPage from "../pages/BookPage";
+
 
 function Card(book) {
+
+  let linkName = book.name;
+  linkName = linkName.replaceAll(" ", "-");
+
   return (
     <div>
+      <Link to= {`/catalog/${linkName}`} >
       <h3>{book.name}</h3>
       <p>{book.date}</p>
+      </Link>
     </div>
   );
 }
