@@ -18,6 +18,7 @@ function BookPage() {
   return (
     <>
       <h2>{name}</h2>
+      <h2>by {book.author}</h2>
       <h3>{book.date}</h3>
       <img src={book.img} alt={book.name + " book cover"}></img>
       <button onClick={() => addBookToCart(book.name)}>add to cart</button>
