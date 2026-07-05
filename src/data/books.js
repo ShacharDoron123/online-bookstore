@@ -34,11 +34,5 @@ export const books = [
     price: 50,
     img: "/books/da-vinci.jpg",
   },
-  {
-    name: "The Kite Runner",
-    author: "Khaled Hosseini",
-    date: "2003",
-    price: 48,
-    img: "/books/kite-runner.jpg",
-  },
+
 ];

@@ -5,7 +5,7 @@ function Catalog() {
     <>
       <h2>Catalog:</h2>
       <p>here is all the books in our store</p>
-      <div>
+      <div className="card-container">
         {books.map((book) => (
           <Card
             key={book.name}

@@ -2,6 +2,7 @@ import { Navigate, replace, useNavigate, useParams } from "react-router-dom";
 import { books } from "../data/books";
 
 function BookPage() {
+  const navigate = useNavigate();
   let { name } = useParams();
   name = name.replaceAll("-", " ");
   let book = books.find((b) => b.name === name);
@@ -17,6 +18,7 @@ function BookPage() {
 
   return (
     <>
+    <button onClick={()=>navigate(-1)}>back</button>
       <h2>{name}</h2>
       <h2>by {book.author}</h2>
       <h3>{book.date}</h3>

@@ -16,7 +16,7 @@ function Cart() {
   if (totalPrice === 0)
     return (
       <>
-        <h2>your shoping cart is empty, you are wellcom to fill it</h2>
+        <h2>your shoping cart is empty, you are welcome to fill it</h2>
         <Link to="/catalog">to catalog</Link>
       </>
     );
@@ -24,8 +24,8 @@ function Cart() {
 
   return (
     <>
-      <h2>your shoping cart</h2>
-      <table>
+      <h2>your shopping cart</h2>
+      <table> 
         <thead>
         <tr>
           <th>id</th>
@@ -33,19 +33,20 @@ function Cart() {
           <th>number</th>
           <th>price</th>
           <th>total price</th>
+          <th/>
         </tr>
         </thead>
         <tbody>
         {items.map((book, index) => {
             return (
               <tr key={book.name}>
-                <th>{index + 1}</th>
-                <th> {book.name} </th>
-                <th> {localStorage.getItem(book.name)} </th>
-                <th> {book.price} </th>
-                <th> {book.price * localStorage.getItem(book.name)} </th>
-                <th>
-                <button
+                <td>{index + 1}</td>
+                <td> {book.name} </td>
+                <td> {localStorage.getItem(book.name)} </td>
+                <td> {book.price} </td>
+                <td> {book.price * localStorage.getItem(book.name)} </td>
+                <td className="action-cell">
+                <button className="delete-btn"
                   onClick={() => {
                     localStorage.removeItem(book.name);
                     setItems(items.filter((item)=> item.name !== book.name))   
@@ -53,7 +54,7 @@ function Cart() {
                 >
                   X
                 </button>
-                </th>
+                </td>
               </tr>
             );
         })}
