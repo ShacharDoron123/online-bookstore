@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Catalog from "./pages/Catalog";
 import BookPage from "./pages/BookPage";
 import Cart from "./pages/Cart";
+import "./App.css"
 
 function App() {
   return (

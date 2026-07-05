@@ -9,8 +9,9 @@ function Card(book) {
   linkName = linkName.replaceAll(" ", "-");
 
   return (
-    <div>
+    <div className="card">
       <Link to= {`/catalog/${linkName}`} >
+       <img className="img-container" src={book.img}></img>
       <h3>{book.name}</h3>
       <p>{book.date}</p>
       </Link>
