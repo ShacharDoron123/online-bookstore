@@ -12,6 +12,8 @@ function Catalog() {
             name={book.name}
             date={book.date}
             img={book.img}
+            badge={book.badge}
+            
           />
         ))}
       </div>
