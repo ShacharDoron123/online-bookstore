@@ -14,7 +14,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="catalog" element={<Catalog />}/>
           <Route path="catalog/:name" element={<BookPage />} />
-          <Route path="/shopping-cart" element={<Cart />} />
+          <Route path="shopping-cart" element={<Cart />} />
           <Route path="*" element={<h2>404 | page not found</h2>} />
         </Route>
       </Routes>
