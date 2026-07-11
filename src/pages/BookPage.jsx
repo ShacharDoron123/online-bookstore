@@ -7,9 +7,9 @@ function BookPage() {
   name = name.replaceAll("-", " ");
   let book = books.find((b) => b.name === name);
 
-  function addBookToCart(name){
-    let num = Number(localStorage.getItem(name))+1;
-    localStorage.setItem(name,num.toString())
+  function addBookToCart(name) {
+    let num = Number(localStorage.getItem(name)) + 1;
+    localStorage.setItem(name, num.toString());
   }
 
   if (book == null) {
@@ -18,11 +18,16 @@ function BookPage() {
 
   return (
     <>
-    <button onClick={()=>navigate(-1)}>back</button>
+      <button onClick={() => navigate(-1)}>back</button>
       <h2>{name}</h2>
       <h2>by {book.author}</h2>
       <h3>{book.date}</h3>
-      <img src={book.img} alt={book.name + " book cover"}></img>
+      <div className="info-bp">
+        <div className="img-bp">
+          <img src={book.img} alt={book.name + " book cover"}></img>
+        </div>
+        <p>{book.Summary}</p>
+      </div>
       <button onClick={() => addBookToCart(book.name)}>add to cart</button>
     </>
   );
