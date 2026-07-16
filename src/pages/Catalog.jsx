@@ -12,6 +12,9 @@ function Catalog() {
             name={book.name}
             date={book.date}
             img={book.img}
+            badge={book.badge}
+            price={book.price}
+            author={book.author}
           />
         ))}
       </div>
