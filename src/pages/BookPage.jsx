@@ -1,4 +1,4 @@
-import { Navigate, replace, useNavigate, useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { books } from "../data/books";
 import { useState } from "react";
 
@@ -8,6 +8,13 @@ function BookPage() {
   let { name } = useParams();
   name = name.replaceAll("-", " ");
   let book = books.find((b) => b.name === name);
+
+  // הפונקציה שמנקה את הסלאש ומחברת את ה-Base URL של גיטהאב
+  const getImageUrl = (path) => {
+    if (!path) return "";
+    const cleanPath = path.startsWith("/") ? path.slice(1) : path;
+    return `${import.meta.env.BASE_URL}${cleanPath}`;
+  };
 
   function addBookToCart(name, qty) {
     let currentQty = Number(localStorage.getItem(name)) || 0;
@@ -29,8 +36,8 @@ function BookPage() {
       <h3>{book.date}</h3>
       <div className="info-bp">
         <div className="img-bp">
-          <img src={book.img} alt={book.name + " book cover"}></img>
-            {book.badge && <div className="badge">{book.badge}</div>}
+          <img src={getImageUrl(book.img)} alt={book.name + " book cover"} />
+          {book.badge && <div className="badge">{book.badge}</div>}
         </div>
         <div>
           <p>{book.Summary}</p>
@@ -40,8 +47,8 @@ function BookPage() {
             <li>Cover: {book.coverType}</li>
           </ul>
           <div className="buy">
-           <h3>{book.badge == "summer sale" ?  "new Price: " + book.price * 0.95 : "Price: " + book.price}$</h3>
-            <label for="quantity">quantity:</label>
+            <h3>{book.badge == "summer sale" ? "new Price: " + book.price * 0.95 : "Price: " + book.price}$</h3>
+            <label htmlFor="quantity">quantity:</label>
             <select
               id="quantity"
               name="quantity"
