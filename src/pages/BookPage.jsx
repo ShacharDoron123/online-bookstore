@@ -9,7 +9,6 @@ function BookPage() {
   name = name.replaceAll("-", " ");
   let book = books.find((b) => b.name === name);
 
-  // הפונקציה שמנקה את הסלאש ומחברת את ה-Base URL של גיטהאב
   const getImageUrl = (path) => {
     if (!path) return "";
     const cleanPath = path.startsWith("/") ? path.slice(1) : path;
