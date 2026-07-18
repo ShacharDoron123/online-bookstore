@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-
 function Card(book) {
   let linkName = book.name;
   linkName = linkName.replaceAll(" ", "-");
@@ -28,7 +27,7 @@ Card.propTypes = {
   date: PropTypes.string,
   img: PropTypes.string,
   badge: PropTypes.string,
-  price: PropTypes.number
+  price: PropTypes.number,
 };
 
 export default Card;

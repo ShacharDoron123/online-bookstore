@@ -30,7 +30,7 @@ function BookPage() {
       <div className="info-bp">
         <div className="img-bp">
           <img src={book.img} alt={book.name + " book cover"}></img>
-            {book.badge && <div className="badge">{book.badge}</div>}
+          {book.badge && <div className="badge">{book.badge}</div>}
         </div>
         <div>
           <p>{book.Summary}</p>
@@ -40,7 +40,12 @@ function BookPage() {
             <li>Cover: {book.coverType}</li>
           </ul>
           <div className="buy">
-           <h3>{book.badge == "summer sale" ?  "new Price: " + book.price * 0.95 : "Price: " + book.price}$</h3>
+            <h3>
+              {book.badge == "summer sale" //will be change to a more secure way when i will add server side 
+                ? "new Price: " + book.price * 0.95
+                : "Price: " + book.price}
+              $
+            </h3>
             <label for="quantity">quantity:</label>
             <select
               id="quantity"
