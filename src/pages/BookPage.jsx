@@ -35,18 +35,31 @@ function BookPage() {
       <h3>{book.date}</h3>
       <div className="info-bp">
         <div className="img-bp">
-          <img src={getImageUrl(book.img)} alt={book.name + " book cover"} />
+          <img src={getImageUrl(book.img)} alt={book.name} />
           {book.badge && <div className="badge">{book.badge}</div>}
         </div>
         <div>
           <p>{book.Summary}</p>
+
           <h3>Technical Details:</h3>
           <ul>
             <li>Pages: {book.pages}</li>
             <li>Cover: {book.coverType}</li>
           </ul>
+
           <div className="buy">
-            <h3>{book.badge == "summer sale" ? "new Price: " + book.price * 0.95 : "Price: " + book.price}$</h3>
+            <h3>
+              {book.badge === "summer sale" ? (
+                <>
+                  <del>{book.price}</del>
+                  <ins>{book.price * 0.95}</ins>
+                </>
+              ) : (
+                "Price: " + book.price
+              )}
+              $
+            </h3>
+
             <label htmlFor="quantity">quantity:</label>
             <select
               id="quantity"

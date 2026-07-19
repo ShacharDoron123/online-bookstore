@@ -75,12 +75,14 @@ td.action-cell{padding: 0;}
 }
 
 .card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     height: 100%;
     border-style: solid;
     border-width: 2px;
     border-radius: 6px;
     height: 100%;
-    border-color: ddd;
     margin: 15px;
     transition:0.3s ease-in-out;
 
@@ -238,12 +240,13 @@ td.action-cell{padding: 0;}
     color: #ffffff;             
     border: none;               
     padding: 10px 22px;
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: bold;
     border-radius: 6px;     
     cursor: pointer;
     box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.2);
     transition: all 0.2s ease-in-out;
+    margin: 15px auto
 }
 
 .add-to-cart-btn:hover {
@@ -255,4 +258,34 @@ td.action-cell{padding: 0;}
 .add-to-cart-btn:active {
     transform: translateY(0);
     box-shadow: 0 2px 4px -1px rgba(16, 185, 129, 0.2);
+}
+
+.buy h3 del {
+    font-size: 0.85em;       
+    color: #888888;         
+    font-weight: normal;     
+    margin-right: 8px;     
+}
+
+
+.buy h3 ins {
+    font-size: 1.15em;     
+    color: #dc2626;       
+    font-weight: bold;     
+    text-decoration: none;   
+}
+
+.card h3 del {
+    font-size: 0.85em;       
+    color: #888888;         
+    font-weight: normal;     
+    margin-right: 8px;     
+}
+
+
+.card h3 ins {
+    font-size: 1.15em;     
+    color: #dc2626;       
+    font-weight: bold;     
+    text-decoration: none;   
 }
