@@ -15,7 +15,17 @@ function Card(book) {
         <h3>{book.name}</h3>
         <h3>{book.author}</h3>
         <p>{book.date}</p>
-        <h3>{book.price}$</h3>
+        <h3>
+          {book.badge == "summer sale" ? ( //will be change to a more secure way when i will add server side
+            <>
+              <del>{book.price}</del>
+              <ins>{book.price * 0.95}</ins>
+            </>
+          ) : (
+            book.price
+          )}
+          $
+        </h3>
       </Link>
       <button
         className="add-to-cart-btn"

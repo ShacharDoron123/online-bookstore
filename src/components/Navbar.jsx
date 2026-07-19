@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 
 function NavBar() {
   return (
-    <div className="navBar">
+    <nav className="navBar">
       <NavLink to="/">
         <button>Home</button>
       </NavLink>
@@ -12,7 +12,7 @@ function NavBar() {
        <NavLink to="/shopping-cart">
         <button>shopping cart</button>
       </NavLink>
-    </div>
+    </nav>
   );
 }
 

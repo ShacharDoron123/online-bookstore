@@ -41,12 +41,17 @@ function BookPage() {
           </ul>
           <div className="buy">
             <h3>
-              {book.badge == "summer sale" //will be change to a more secure way when i will add server side 
-                ? "new Price: " + book.price * 0.95
-                : "Price: " + book.price}
+              {book.badge == "summer sale" ? ( //will be change to a more secure way when i will add server side
+                <>
+                  <del>{book.price}</del>
+                  <ins>{book.price * 0.95}</ins>
+                </>
+              ) : (
+                "Price: " + book.price
+              )}
               $
             </h3>
-            <label for="quantity">quantity:</label>
+            <label htmlFor="quantity">quantity:</label>
             <select
               id="quantity"
               name="quantity"

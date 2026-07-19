@@ -259,3 +259,33 @@ td.action-cell{padding: 0;}
     transform: translateY(0);
     box-shadow: 0 2px 4px -1px rgba(16, 185, 129, 0.2);
 }
+
+.buy h3 del {
+    font-size: 0.85em;       
+    color: #888888;         
+    font-weight: normal;     
+    margin-right: 8px;     
+}
+
+
+.buy h3 ins {
+    font-size: 1.15em;     
+    color: #dc2626;       
+    font-weight: bold;     
+    text-decoration: none;   
+}
+
+.card h3 del {
+    font-size: 0.85em;       
+    color: #888888;         
+    font-weight: normal;     
+    margin-right: 8px;     
+}
+
+
+.card h3 ins {
+    font-size: 1.15em;     
+    color: #dc2626;       
+    font-weight: bold;     
+    text-decoration: none;   
+}
