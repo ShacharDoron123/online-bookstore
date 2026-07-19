@@ -17,6 +17,18 @@ function Card(book) {
         <p>{book.date}</p>
         <h3>{book.price}$</h3>
       </Link>
+      <button
+        className="add-to-cart-btn"
+        value={book.name}
+        onClick={() =>
+          localStorage.setItem(
+            book.name,
+            Number(localStorage.getItem(book.name)) + 1,
+          )
+        }
+      >
+        add to cart
+      </button>
     </div>
   );
 }
