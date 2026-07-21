@@ -8,14 +8,23 @@ function Cart() {
   );
 
   let totalPrice = 0;
+  let discount = 0;
+
   items.forEach((item) => {
-    totalPrice += item.price * localStorage.getItem(item.name);
+    const quantity = Number(localStorage.getItem(item.name)) || 0;
+    const itemTotal = item.price * quantity;
+
+    totalPrice += itemTotal;
+
+    if (item.badge === "summer sale") {
+      discount += itemTotal * 0.05;
+    }
   });
 
   if (totalPrice === 0)
     return (
       <>
-        <h2>your shoping cart is empty, you are welcome to fill it</h2>
+        <h2>your shopping cart is empty, you are welcome to fill it</h2>
         <Link to="/catalog">to catalog</Link>
       </>
     );
@@ -36,13 +45,24 @@ function Cart() {
         </thead>
         <tbody>
           {items.map((book, index) => {
+            const quantity = Number(localStorage.getItem(book.name)) || 0;
             return (
               <tr key={book.name}>
                 <td>{index + 1}</td>
                 <td> {book.name} </td>
-                <td> {localStorage.getItem(book.name)} </td>
-                <td> {book.price} </td>
-                <td> {book.price * localStorage.getItem(book.name)} </td>
+                <td> {quantity} </td>
+                <td className="cartT">
+                  {book.badge === "summer sale" ? (
+                    <>
+                      <del>{book.price}</del>
+                      <ins>{book.price * 0.95}</ins>
+                    </>
+                  ) : (
+                    book.price
+                  )}
+                  $
+                </td>
+                <td> {book.price * quantity}$ </td>
                 <td className="action-cell">
                   <button
                     className="delete-btn"
@@ -59,7 +79,10 @@ function Cart() {
           })}
         </tbody>
       </table>
-      <h3>total Price: {totalPrice}</h3>
+
+      <h3>total Price: {totalPrice}$</h3>
+      <h3>discount: {discount.toFixed(2)}$</h3>
+      <h3>to pay: {(totalPrice - discount).toFixed(2)}$</h3>
     </>
   );
 }
