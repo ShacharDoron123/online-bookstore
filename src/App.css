@@ -289,3 +289,18 @@ td.action-cell{padding: 0;}
     font-weight: bold;     
     text-decoration: none;   
 }
+
+.cartT del {
+    font-size: 0.85em;       
+    color: #888888;         
+    font-weight: normal;     
+    margin-right: 8px;     
+}
+
+
+.cartT ins {
+    font-size: 1.15em;     
+    color: #dc2626;       
+    font-weight: bold;     
+    text-decoration: none;   
+}
