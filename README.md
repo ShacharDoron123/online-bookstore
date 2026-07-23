@@ -20,7 +20,10 @@ A full-featured, responsive E-Commerce web application for browsing and purchasi
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Tech Stack & Tools
 
-- **Frontend:** HTML5, CSS3, JavaScript (ES6+)
+- **Framework / Core:** React.js
+- **Build Tool:** Vite
+- **Languages & Styling:** JavaScript (ES6+), HTML5, CSS3
+- **Libraries:**React Router
 - **Deployment:** GitHub Pages
