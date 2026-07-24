@@ -1,19 +1,16 @@
 import { Navigate, replace, useNavigate, useParams } from "react-router-dom";
 import { books } from "../data/books";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { CartContext } from "../CartContext";
 
 function BookPage() {
   const navigate = useNavigate();
   const [quantity, setQuantity] = useState(1);
+   const { items, setItems, addToCart } = useContext(CartContext);
   let { name } = useParams();
   name = name.replaceAll("-", " ");
   let book = books.find((b) => b.name === name);
 
-  function addBookToCart(name, qty) {
-    let currentQty = Number(localStorage.getItem(name)) || 0;
-    let total = currentQty + qty;
-    localStorage.setItem(name, total.toString());
-  }
 
   if (book == null) {
     return <Navigate to="/page-not-found" />;
@@ -66,7 +63,7 @@ function BookPage() {
             </select>
             <button
               className="add-to-cart-btn"
-              onClick={() => addBookToCart(book.name, quantity)}
+              onClick={() => addToCart(book,quantity)}
             >
               add to cart
             </button>

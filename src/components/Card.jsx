@@ -1,9 +1,12 @@
 import PropTypes from "prop-types";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "../CartContext";
 
 function Card(book) {
   let linkName = book.name;
   linkName = linkName.replaceAll(" ", "-");
+  const { items, setItems, addToCart } = useContext(CartContext);
 
   return (
     <div className="card">
@@ -30,12 +33,10 @@ function Card(book) {
       <button
         className="add-to-cart-btn"
         value={book.name}
-        onClick={() =>
-          localStorage.setItem(
-            book.name,
-            Number(localStorage.getItem(book.name)) + 1,
-          )
+        onClick={() => {
+          addToCart(book)
         }
+      }
       >
         add to cart
       </button>
