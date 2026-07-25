@@ -1,17 +1,16 @@
 import { books } from "../data/books";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useContext} from "react";
+import { CartContext } from "../CartContext";
 
 function Cart() {
-  let [items, setItems] = useState(() =>
-    books.filter((book) => localStorage.getItem(book.name) != null),
-  );
+   const { items, removeItem } = useContext(CartContext);
 
   let totalPrice = 0;
   let discount = 0;
 
   items.forEach((item) => {
-    const quantity = Number(localStorage.getItem(item.name)) || 0;
+    const quantity = item.quantity || 0;
     const itemTotal = item.price * quantity;
 
     totalPrice += itemTotal;
@@ -45,7 +44,7 @@ function Cart() {
         </thead>
         <tbody>
           {items.map((book, index) => {
-            const quantity = Number(localStorage.getItem(book.name)) || 0;
+            const quantity = book.quantity || 0;
             return (
               <tr key={book.name}>
                 <td>{index + 1}</td>
@@ -67,8 +66,7 @@ function Cart() {
                   <button
                     className="delete-btn"
                     onClick={() => {
-                      localStorage.removeItem(book.name);
-                      setItems(items.filter((item) => item.name !== book.name));
+                      removeItem(book);
                     }}
                   >
                     X
