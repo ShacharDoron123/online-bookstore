@@ -19,7 +19,7 @@ function Card(book) {
 
       <Link to={`/book/${bookUrlPath}`}>
         <img
-          src={getImageUrl(book.image)}
+          src={getImageUrl(book.img)}
           alt={book.name}
           className="card-image"
         />
@@ -27,7 +27,7 @@ function Card(book) {
 
       <div className="card-details">
         <h3 className="card-title">
-          <Link to={`/book/${bookUrlPath}`}>{book.name}</Link>
+          <Link to={`/catalog/${bookUrlPath}`}/>
         </h3>
         <p className="card-author">{book.author}</p>
         <p className="card-year">{book.year}</p>
