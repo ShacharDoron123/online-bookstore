@@ -30,13 +30,17 @@ export function CartProvider({ children }) {
     });
   };
 
+  const removeItem = (book) => {
+    setItems((prevItems) => prevItems.filter((item) => item.name !== book.name));
+  }
+
   useEffect(() => {
     let string = JSON.stringify(items);
     localStorage.setItem("items", string);
   }, [items]);
 
   return (
-    <CartContext.Provider value={{ items, setItems, addToCart }}>
+    <CartContext.Provider value={{ items, setItems, addToCart, removeItem  }}>
       {children}
     </CartContext.Provider>
   );

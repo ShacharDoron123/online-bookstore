@@ -1,17 +1,21 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import UserCartSidebar from "./UserCartSidebar";
 
 function NavBar() {
   return (
     <nav className="navBar">
-      <NavLink to="/">
-        <button>Home</button>
-      </NavLink>
-      <NavLink to="/catalog">
-        <button>Catalog</button>
-      </NavLink>
-      <NavLink to="/shopping-cart">
-        <button>shopping cart</button>
-      </NavLink>
+      <div className="navBar-links">
+        <NavLink to="/">
+          <button>Home</button>
+        </NavLink>
+        <NavLink to="/catalog">
+          <button>Catalog</button>
+        </NavLink>
+        <NavLink to="/shopping-cart">
+          <button>Shopping Cart</button>
+        </NavLink>
+      </div>
+      <UserCartSidebar />
     </nav>
   );
 }

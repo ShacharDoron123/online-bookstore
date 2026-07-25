@@ -8,7 +8,6 @@ function Layout() {
     <body>
       <CartProvider>
         <NavBar />
-        <UserCartSidebar />
         <main>
           <Outlet />
         </main>

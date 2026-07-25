@@ -1,16 +1,10 @@
 import { books } from "../data/books";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useContext} from "react";
+import { CartContext } from "../CartContext";
 
 function Cart() {
-  let [items, setItems] = useState(() => {
-    let courent = localStorage.getItem("items");
-    if (courent) {
-      return JSON.parse(courent);
-    } else {
-      return [];
-    }
-  });
+   const { items, removeItem } = useContext(CartContext);
 
   let totalPrice = 0;
   let discount = 0;
@@ -72,8 +66,7 @@ function Cart() {
                   <button
                     className="delete-btn"
                     onClick={() => {
-                      localStorage.removeItem(book.name);
-                      setItems(items.filter((item) => item.name !== book.name));
+                      removeItem(book);
                     }}
                   >
                     X

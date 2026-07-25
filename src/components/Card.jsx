@@ -12,7 +12,7 @@ function Card(book) {
     <div className="card">
       <Link to={`/catalog/${linkName}`}>
         <div className="badge-and-img-con">
-          <img className="img-container" src={book.img}></img>
+          <img className="img-container" src={book.img} alt={book.name}></img>
           {book.badge && <div className="badge">{book.badge}</div>}
         </div>
         <h3>{book.name}</h3>
