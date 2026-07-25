@@ -1,9 +1,9 @@
-import PropTypes from "prop-types";
+import { useContext } from "react";
+import { CartContext } from "../CartContext";
 import { Link } from "react-router-dom";
 
-function Card(book) {
-  let linkName = book.name;
-  linkName = linkName.replaceAll(" ", "-");
+function Card({ book }) {
+  const { addToCart } = useContext(CartContext);
 
   const getImageUrl = (path) => {
     if (!path) return "";
@@ -11,55 +11,43 @@ function Card(book) {
     return `${import.meta.env.BASE_URL}${cleanPath}`;
   };
 
+  const bookUrlPath = book.name ? book.name.replaceAll(" ", "-") : "";
+
   return (
     <div className="card">
-      <Link to={`/catalog/${linkName}`}>
-        <div className="badge-and-img-con">
-          <img
-            className="img-container"
-            src={getImageUrl(book.img)}
-            alt={book.name}
-          />
-          {book.badge && <div className="badge">{book.badge}</div>}
-        </div>
-        <h3>{book.name}</h3>
-        <h3>{book.author}</h3>
-        <p>{book.date}</p>
-        <h3>
-          {book.badge == "summer sale" ? ( //will be change to a more secure way when i will add server side
-            <>
-              <del>{book.price}</del>
-              <ins>{book.price * 0.95}</ins>
-            </>
-          ) : (
-            book.price
-          )}
-          $
-        </h3>
+      {book.badge && <span className="card-badge">{book.badge}</span>}
+
+      <Link to={`/book/${bookUrlPath}`}>
+        <img
+          src={getImageUrl(book.image)}
+          alt={book.name}
+          className="card-image"
+        />
       </Link>
-      <button
-        className="add-to-cart-btn"
-        value={book.name}
-        onClick={() =>
-          localStorage.setItem(
-            book.name,
-            Number(localStorage.getItem(book.name)) + 1,
-          )
-        }
+
+      <div className="card-details">
+        <h3 className="card-title">
+          <Link to={`/book/${bookUrlPath}`}>{book.name}</Link>
+        </h3>
+        <p className="card-author">{book.author}</p>
+        <p className="card-year">{book.year}</p>
+
+        <div className="card-price">
+          {book.oldPrice && (
+            <span className="old-price">${book.oldPrice} </span>
+          )}
+          <span className="current-price">{book.price}$</span>
+        </div>
+      </div>
+
+      <button 
+        className="add-to-cart-btn" 
+        onClick={() => addToCart(book)}
       >
         add to cart
       </button>
     </div>
   );
 }
-
-Card.propTypes = {
-  name: PropTypes.string,
-  author: PropTypes.string,
-  date: PropTypes.string,
-  img: PropTypes.string,
-  badge: PropTypes.string,
-  price: PropTypes.number,
-};
 
 export default Card;
