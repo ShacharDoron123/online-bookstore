@@ -17,7 +17,7 @@ function Card(book) {
     <div className="card">
       {book.badge && <span className="card-badge">{book.badge}</span>}
 
-      <Link to={`/book/${bookUrlPath}`}>
+      <Link to={`/catalog/${bookUrlPath}`}>
         <img
           src={getImageUrl(book.img)}
           alt={book.name}
