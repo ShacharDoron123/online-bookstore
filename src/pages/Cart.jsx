@@ -1,10 +1,10 @@
 import { books } from "../data/books";
 import { Link } from "react-router-dom";
-import { useContext} from "react";
+import { useContext } from "react";
 import { CartContext } from "../CartContext";
 
 function Cart() {
-   const { items, removeItem } = useContext(CartContext);
+  const { items, removeItem } = useContext(CartContext);
 
   let totalPrice = 0;
   let discount = 0;

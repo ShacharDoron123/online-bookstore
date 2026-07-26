@@ -1,4 +1,4 @@
-import { Navigate, replace, useNavigate, useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { books } from "../data/books";
 import { useContext, useState } from "react";
 import { CartContext } from "../CartContext";
@@ -6,11 +6,10 @@ import { CartContext } from "../CartContext";
 function BookPage() {
   const navigate = useNavigate();
   const [quantity, setQuantity] = useState(1);
-   const { items, setItems, addToCart } = useContext(CartContext);
+  const { items, setItems, addToCart } = useContext(CartContext);
   let { name } = useParams();
   name = name.replaceAll("-", " ");
   let book = books.find((b) => b.name === name);
-
 
   if (book == null) {
     return <Navigate to="/page-not-found" />;
@@ -38,7 +37,7 @@ function BookPage() {
           </ul>
           <div className="buy">
             <h3>
-              {book.badge == "summer sale" ? ( //will be change to a more secure way when i will add server side
+              {book.badge === "summer sale" ? ( //will be change to a more secure way when i will add server side
                 <>
                   <del>{book.price}</del>
                   <ins>{book.price * 0.95}</ins>
@@ -63,7 +62,7 @@ function BookPage() {
             </select>
             <button
               className="add-to-cart-btn"
-              onClick={() => addToCart(book,quantity)}
+              onClick={() => addToCart(book, quantity)}
             >
               add to cart
             </button>

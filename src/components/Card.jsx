@@ -7,7 +7,7 @@ function Card(book) {
   let linkName = book.name;
   linkName = linkName.replaceAll(" ", "-");
   const { items, setItems, addToCart } = useContext(CartContext);
-
+  console.log("Card renders");
   return (
     <div className="card">
       <Link to={`/catalog/${linkName}`}>
@@ -34,9 +34,8 @@ function Card(book) {
         className="add-to-cart-btn"
         value={book.name}
         onClick={() => {
-          addToCart(book)
-        }
-      }
+          addToCart(book);
+        }}
       >
         add to cart
       </button>

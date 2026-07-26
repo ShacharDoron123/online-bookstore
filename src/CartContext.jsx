@@ -31,8 +31,10 @@ export function CartProvider({ children }) {
   };
 
   const removeItem = (book) => {
-    setItems((prevItems) => prevItems.filter((item) => item.name !== book.name));
-  }
+    setItems((prevItems) =>
+      prevItems.filter((item) => item.name !== book.name),
+    );
+  };
 
   useEffect(() => {
     let string = JSON.stringify(items);
@@ -40,7 +42,7 @@ export function CartProvider({ children }) {
   }, [items]);
 
   return (
-    <CartContext.Provider value={{ items, setItems, addToCart, removeItem  }}>
+    <CartContext.Provider value={{ items, setItems, addToCart, removeItem }}>
       {children}
     </CartContext.Provider>
   );
