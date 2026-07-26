@@ -4,10 +4,11 @@ import { useState } from "react";
 function Catalog() {
   const [query, setQuery] = useState("");
 
-  let filterd = books.filter((book) =>
-    book.name.toLowerCase().includes(query.toLowerCase()),
+  let filterd = books.filter(
+    (book) =>
+      book.name.toLowerCase().includes(query.toLowerCase()) ||
+      book.author.toLowerCase().includes(query.toLowerCase()),
   );
-  console.log("Catalog renders");
   return (
     <>
       <h2>Catalog:</h2>
