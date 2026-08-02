@@ -5,7 +5,7 @@ import { CartContext, CartProvider } from "../CartContext";
 import { Outlet } from "react-router-dom";
 function Layout() {
   return (
-    <body>
+    <div className="layout-container">
       <CartProvider>
         <NavBar />
         <main>
@@ -13,7 +13,7 @@ function Layout() {
         </main>
         <Footer />
       </CartProvider>
-    </body>
+    </div>
   );
 }
 

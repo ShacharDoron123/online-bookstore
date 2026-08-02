@@ -1,12 +1,21 @@
 import Card from "../components/Card";
 import { books } from "../data/books";
+import { useState } from "react";
 function Catalog() {
+  const [query, setQuery] = useState("");
+
+  let filterd = books.filter(
+    (book) =>
+      book.name.toLowerCase().includes(query.toLowerCase()) ||
+      book.author.toLowerCase().includes(query.toLowerCase()),
+  );
   return (
     <>
       <h2>Catalog:</h2>
       <p>here is all the books in our store</p>
+      <input value={query} onChange={(e) => setQuery(e.target.value)} />
       <div className="card-container">
-        {books.map((book) => (
+        {filterd.map((book) => (
           <Card
             key={book.name}
             name={book.name}

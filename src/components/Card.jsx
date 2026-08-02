@@ -7,7 +7,6 @@ function Card(book) {
   let linkName = book.name;
   linkName = linkName.replaceAll(" ", "-");
   const { items, setItems, addToCart } = useContext(CartContext);
-
   return (
     <div className="card">
       <Link to={`/catalog/${linkName}`}>
@@ -19,7 +18,7 @@ function Card(book) {
         <h3>{book.author}</h3>
         <p>{book.date}</p>
         <h3>
-          {book.badge == "summer sale" ? ( //will be change to a more secure way when i will add server side
+          {book.badge === "summer sale" ? ( //will be change to a more secure way when i will add server side
             <>
               <del>{book.price}</del>
               <ins>{book.price * 0.95}</ins>
@@ -34,9 +33,8 @@ function Card(book) {
         className="add-to-cart-btn"
         value={book.name}
         onClick={() => {
-          addToCart(book)
-        }
-      }
+          addToCart(book);
+        }}
       >
         add to cart
       </button>
