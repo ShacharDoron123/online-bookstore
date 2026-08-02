@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { CartContext } from "../CartContext";
 
 function Card(book) {
-
   let linkName = book.name ? book.name.replaceAll(" ", "-") : "";
   const { addToCart } = useContext(CartContext);
 
@@ -29,7 +28,7 @@ function Card(book) {
         <h3>{book.author}</h3>
         <p>{book.date}</p>
         <h3>
-          {book.badge === "summer sale" ? ( 
+          {book.badge === "summer sale" ? (
             <>
               <del>{book.price}</del>
               <ins>{book.price * 0.95}</ins>

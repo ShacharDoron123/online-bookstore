@@ -1,4 +1,4 @@
-import { Navigate, replace, useNavigate, useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { books } from "../data/books";
 import { useContext, useState } from "react";
 import { CartContext } from "../CartContext";
@@ -7,7 +7,7 @@ function BookPage() {
   const navigate = useNavigate();
   const [quantity, setQuantity] = useState(1);
   const { items, setItems, addToCart } = useContext(CartContext);
-  
+
   let { name } = useParams();
   name = name.replaceAll("-", " ");
   let book = books.find((b) => b.name === name);
@@ -72,7 +72,7 @@ function BookPage() {
             </select>
             <button
               className="add-to-cart-btn"
-              onClick={() => addToCart(book,quantity)}
+              onClick={() => addToCart(book, quantity)}
             >
               add to cart
             </button>
