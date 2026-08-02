@@ -10,6 +10,7 @@ export const books = [
     publisher: "Scholastic",
     language: "English",
     genre: "Fantasy / Adventure",
+    category: "Fantasy",
     img: "/books/harry-potter.jpg",
     badge: "Best Seller",
     Summary:
@@ -26,6 +27,7 @@ export const books = [
     publisher: "HarperOne",
     language: "English",
     genre: "Philosophical / Quest Fiction",
+    category: "Fiction",
     badge: "summer sale",
     img: "/books/the-alchemist.jpg",
     Summary:
@@ -42,6 +44,7 @@ export const books = [
     publisher: "Signet Classics",
     language: "English",
     genre: "Dystopian / Political Fiction",
+    category: "Dystopian",
     badge: "Best Seller",
     img: "/books/1984.jpg",
     Summary:
@@ -58,6 +61,7 @@ export const books = [
     publisher: "Ballantine Books",
     language: "English",
     genre: "High Fantasy / Adventure",
+    category: "Adventure",
     badge: "Best Seller",
     img: "/books/the-hobbit.jpg",
     Summary:
@@ -74,9 +78,12 @@ export const books = [
     publisher: "Anchor Books",
     language: "English",
     genre: "Mystery / Thriller",
+    category: "Thriller",
     badge: "recommended",
     img: "/books/da-vinci.jpg",
     Summary:
       "The Da Vinci Code is a fast-paced thriller that begins with a shocking and mysterious murder inside the famous Louvre Museum in Paris. Harvard symbologist Robert Langdon and talented French cryptologist Sophie Neveu are thrust into a heart-pounding race against time to solve a trail of cryptic clues hidden within the artwork of Leonardo da Vinci. As they flee from both the police and a shadowy religious assassin, they unravel a centuries-old historical secret that could shatter the very foundations of modern history. They must use their wits to solve the puzzle before the truth is lost forever.",
   },
 ];
+
+export const categories = ["Fantasy", "Fiction", "Dystopian", "Adventure", "Thriller"];

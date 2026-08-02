@@ -1,19 +1,60 @@
 import Card from "../components/Card";
-import { books } from "../data/books";
+import NavBar from "../components/Navbar";
+import { books, categories } from "../data/books";
 import { useState } from "react";
 function Catalog() {
   const [query, setQuery] = useState("");
+  const [category, setCategory] = useState("");
+  let filterd;
 
-  let filterd = books.filter(
-    (book) =>
-      book.name.toLowerCase().includes(query.toLowerCase()) ||
-      book.author.toLowerCase().includes(query.toLowerCase()),
-  );
+  if (category === "") {
+    filterd = books.filter(
+      (book) =>
+        book.name.toLowerCase().includes(query.toLowerCase()) ||
+        book.author.toLowerCase().includes(query.toLowerCase()),
+    );
+  } else {
+    filterd = books.filter(
+      (book) =>
+        book.category === category &&
+        (book.name.toLowerCase().includes(query.toLowerCase()) ||
+          book.author.toLowerCase().includes(query.toLowerCase())),
+    );
+  }
   return (
     <>
-      <h2>Catalog:</h2>
-      <p>here is all the books in our store</p>
-      <input value={query} onChange={(e) => setQuery(e.target.value)} />
+      <div className="catalog-header">
+        <h2>Catalog</h2>
+        <p>Explore our complete collection of books</p>
+      </div>
+      <div className="search-container">
+        <input
+          className="search-input"
+          type="text"
+          placeholder="Search by title or author..."
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+      </div>
+      <nav className="category-nav">
+        <button
+          className={`category-pill ${category === "" ? "active" : ""}`}
+          onClick={() => setCategory("")}
+        >
+          All
+        </button>
+
+        {categories.map((cat) => (
+          <button
+            key={cat}
+            className={`category-pill ${category === cat ? "active" : ""}`}
+            onClick={() => setCategory(cat)}
+          >
+            {cat}
+          </button>
+        ))}
+      </nav>
+
       <div className="card-container">
         {filterd.map((book) => (
           <Card

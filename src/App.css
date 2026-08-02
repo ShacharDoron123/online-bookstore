@@ -396,7 +396,6 @@ td.action-cell{padding: 0;}
   box-shadow: 0 2px 4px rgba(180, 148, 2, 0.4);
 }
 
-
 .cart-empty-text {
   font-size: 13px;
   color: #94a3b8;
@@ -407,4 +406,77 @@ td.action-cell{padding: 0;}
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+.catalog-header {
+  text-align: center;
+  margin: 1.5rem 0 1rem;
+}
+
+.catalog-header h2 {
+  color: #222;
+  font-size: 2rem;
+  margin-bottom: 0.3rem;
+}
+
+.catalog-header p {
+  color: #666;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 380px;
+  padding: 0.65rem 1.2rem;
+  font-size: 0.95rem;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-input:focus {
+  border-color: #888;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.08);
+}
+
+.category-nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.category-pill {
+  padding: 0.45rem 1.1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #4f4f4f;
+  background-color: #f8f8f8;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.category-pill:hover {
+  background-color: #eaeaea;
+  color: #111;
+}
+
+.category-pill.active {
+  background-color: #ffd100;
+  color: #111;
+  border-color: #e0b800;
+  font-weight: 600;
 }
